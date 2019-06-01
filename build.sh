@@ -133,6 +133,7 @@ if [ "$PARAM_RPM" = "true" ]; then
 	QA_RPATHS=$(( 0x0020 )) rpmbuild -bb alt-gcc${compactVersion}.spec
 	[ $? -ne 0 ] && { echo "Error: rpmbuild failed"; exit 1; }
 
+	echo "Cleaning up"
 	rm -rf install $gcc_tarball alt-gcc${compactVersion}.spec
 
 	sudo rm -rf $prefix
